@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 
 class sendEmail extends Controller
 {
@@ -14,21 +15,22 @@ class sendEmail extends Controller
     //            ('Laravel Basic Testing Mail');
     //         $message->from('ahmadkhalaf18000@gmail.com','Virat Gandhi');
     //      });}
-        if(isset($r->sender)){
-           $recipient ="ahmadkhalaf18000@gmail.com";
+        // if(isset($r->sender)){
+        //    $recipient ="ahmadkhalaf18000@gmail.com";
 
-           $subject = "Approval from mentorHub";
+        //    $subject = "Approval from mentorHub";
 
-           $message ='Hi mentor,we reviwed candidate application 
-           with your course,here is candidate info<br>'.'Candidate name:'. $r->userName.
-           ' Candidate email:'. $r->userEmail. ' Age:'. $r->userAge. ' Education:'. $r->userEducation.' Thanks';
+        //    $message ='Hi mentor,we reviwed candidate application 
+        //    with your course,here is candidate info<br>'.'Candidate name:'. $r->userName.
+        //    ' Candidate email:'. $r->userEmail. ' Age:'. $r->userAge. ' Education:'. $r->userEducation.' Thanks';
 
-           $sender = "From: ahmadkhalaf18000@gmail.com";
+        //    $sender = "From: ahmadkhalaf18000@gmail.com";
 
-           mail($recipient, $subject, $message, $sender);
-        }
-       
-        return redirect('/app')->with('message','Email was sent to mentor' );
+        //    mail($recipient, $subject, $message, $sender);
+        // }
+        $m = Application::find($r->id);
+        $m->delete();
+        return redirect('/app')->with('success','Email was sent to mentor' );
 
     }
     

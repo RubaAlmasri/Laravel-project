@@ -18,7 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $admin = admin::find(1);
+        return view('admin.dashboard', compact('admin'));
     }
 
     /**
@@ -48,9 +49,9 @@ class AdminController extends Controller
      * @param  \App\Models\admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(User $admin)
+    public function show(admin $admin)
     {
-        $admin = User::find(3);
+        $admin = admin::find(1);
         return view('admin.admin_profile', compact('admin'));
     }
 
@@ -72,13 +73,13 @@ class AdminController extends Controller
      * @param  \App\Models\admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $admin)
+    public function update(Request $request, admin $admin)
     {
         $admin->exists = true;
 
-        $admin->name = $request->post('name');
-        $admin->email = $request->post('email');
-        $admin->password = $request->post('pass');
+        $admin->admin_name = $request->post('name');
+        $admin->admin_email = $request->post('email');
+        $admin->admin_password = $request->post('pass');
 
         $admin->save();
 

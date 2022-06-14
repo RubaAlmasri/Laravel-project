@@ -63,7 +63,7 @@
 
                 <div class="bg-secondary rounded p-5">
                     <h3 class="text-uppercase mb-4" style="letter-spacing: 5px;">Send An Application</h3>
-                    <form method="POST" action="application">
+                    <form method="POST" action="/application">
                         @csrf
                         <div class="form-group">
                             <label for="name">Name*</label>

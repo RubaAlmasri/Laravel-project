@@ -76,15 +76,15 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 
 Route::get('/admin_profile', [AdminController::class,'show']);
 
+
 Route::put('/edit_admin/{admin}', [AdminController::class,'update']);
-
-
 
 Route::get('/dashboard', [AdminController::class,'index']);
 
 Route::resource('/mentors', MentorRequestController::class);
 
 Route::resource('/category', CategoryController::class);
+
 Route::resource('/post', postAdminController::class);
 
 // Route::resource('/admin_profile', [AdminController::class,'show']);
@@ -138,7 +138,7 @@ Route::get('/create_course', function () {
 
 
 
-Route::post('application',[ApplicationController::class,'store']);
+Route::post('/application',[ApplicationController::class,'store']);
 
 
 Route::get('/app', [ApplicationController::class,'index']);
