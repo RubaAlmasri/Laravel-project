@@ -50,6 +50,8 @@ Route::resource('/posts', PostControlle::class);
 Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
 Route::resource('profile',MentorController::class);
 
+Route::get('/profile/app/{id}',[MentorController::class,'apppp']);
+
 Route::resource('image',changeimage::class);
  
 

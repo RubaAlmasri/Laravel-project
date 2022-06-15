@@ -70,9 +70,10 @@
                                 <tr>
                                     <th class="border-top-0 " style="color: #fff;">Name </th>
                                     <th class="border-top-0" style="color: #fff;"> Email </th>
-                                    <th class="border-top-0" style="color: #fff;"> Age</th>
+                                    <th class="border-top-0" style="color: #fff;"> Date of Birth </th>
                                     <th class="border-top-0" style="color: #fff;">Education</th>
-                                    <th class="border-top-0 w-25" style="color: #fff;">Purpose</th>
+                                    <th class="border-top-0" style="color: #fff;">Purpose</th>
+                                    <th class="border-top-0" style="color: #fff;">Mentor ID</th>
                                     <th class="border-top-0" style="color: #fff;">Actions</th>
                                 </tr>
                             </thead>
@@ -80,10 +81,12 @@
                                 @foreach ($data as $value)
                                 <tr>
                                     <td>{{ $value->name }}</td>
-                                    <td>{{ $value->email }}</td>
+                                    
+                                    <td><a href="mailto:{{ $value->email }}">{{ $value->email }}</a></td>
                                     <td>{{ $value->age }}</td>
                                     <td>{{ $value->education }}</td>
                                     <td class="text-wrap">{{ $value->purpose }}</td>
+                                    <td>{{ $value->mentor_id }}</td>
 
 
                                     <td>
